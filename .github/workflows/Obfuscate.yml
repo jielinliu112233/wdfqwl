@@ -29,12 +29,12 @@ jobs:
           npm install -g javascript-obfuscator
 
       - name: 下载 worker.js（多路径兼容）
-  run: |
+        run: |
     # 尝试可能的路径（按优先级顺序）
-    wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/src/_worker.js || \
-    wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/dist/worker.js || \
-    wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/worker.js || \
-    echo "❌ 无法找到 worker.js，请手动确认路径！" && exit 1
+          wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/src/_worker.js || \
+          wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/dist/worker.js || \
+          wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/main/worker.js || \
+       echo "❌ 无法找到 worker.js，请手动确认路径！" && exit 1
       - name: 混淆 BPB worker.js
         run: |
           javascript-obfuscator origin.js --output _worker.js \
