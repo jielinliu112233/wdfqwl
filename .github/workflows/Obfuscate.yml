@@ -30,8 +30,10 @@ jobs:
 
       - name: 下载 BPB worker.js
         run: |
-         wget https://github.com/bia-pain-bache/BPB-Worker-Panel/releases/download/v3.2.3/BPB-Panel-v3.2.3.zip
-         unzip BPB-Panel-v3.2.3.zip
+        git clone https://github.com/bia-pain-bache/BPB-Worker-Panel.git
+        cd BPB-Worker-Panel
+        npm install
+        npm run build
       - name: 混淆 BPB worker.js
         run: |
           javascript-obfuscator origin.js --output _worker.js \
